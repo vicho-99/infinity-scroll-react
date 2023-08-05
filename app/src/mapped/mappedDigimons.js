@@ -1,8 +1,6 @@
-import { GET } from '@/app/services/fetch';
-
-export async function useDigimons({ params }) {
-
-    const digimons = await GET({ name: '/digimon', params });;
+export default function mappedDigimons({
+    digimons
+}) {
 
     const mappedDigimons = digimons?.map(digimon => ({
         id: digimon.id,
@@ -12,7 +10,6 @@ export async function useDigimons({ params }) {
         page: digimon.page,
     }));
 
-
-    return { digimons: mappedDigimons }
+    return mappedDigimons
 
 }
